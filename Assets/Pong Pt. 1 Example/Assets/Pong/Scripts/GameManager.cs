@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +10,9 @@ public class GameManager : MonoBehaviour
 
     int leftPlayerScore;
     int rightPlayerScore;
+    
+    public TextMeshProUGUI scoreText;
+    
     Vector3 ballStartPos;
 
     const int scoreToWin = 11;
@@ -16,6 +20,7 @@ public class GameManager : MonoBehaviour
     //---------------------------------------------------------------------------
     void Start()
     {
+        scoreText.text = leftPlayerScore + " : " + rightPlayerScore;
         ballStartPos = ball.position;
         Rigidbody ballBody = ball.GetComponent<Rigidbody>();
         ballBody.linearVelocity = new Vector3(1f, 0f, 0f) * startSpeed;
@@ -30,21 +35,36 @@ public class GameManager : MonoBehaviour
         {
             rightPlayerScore++;
             Debug.Log($"Right player scored: {rightPlayerScore}");
-
-            if (rightPlayerScore == scoreToWin)
+            scoreText.text = leftPlayerScore + " : " + rightPlayerScore;
+            
+            if (rightPlayerScore == scoreToWin) {
                 Debug.Log("Right player wins!");
-            else
                 ResetBall(-1f);
+                leftPlayerScore = 0;
+                rightPlayerScore = 0;
+                scoreText.text = leftPlayerScore + " : " + rightPlayerScore;
+
+            } else {
+                ResetBall(-1f);
+            }
         }
         else if (trigger == rightGoalTrigger)
         {
             leftPlayerScore++;
             Debug.Log($"Left player scored: {leftPlayerScore}");
-
-            if (rightPlayerScore == scoreToWin)
-                Debug.Log("Left player wins!");
-            else
+            scoreText.text = leftPlayerScore + " : " + rightPlayerScore;
+            
+            if (leftPlayerScore == scoreToWin) {
+                Debug.Log("Right player wins!");
                 ResetBall(1f);
+                rightPlayerScore = 0;
+                leftPlayerScore = 0;
+                scoreText.text = leftPlayerScore + " : " + rightPlayerScore;
+
+            }
+            else {
+                ResetBall(1f);
+            }
         }
     }
 
