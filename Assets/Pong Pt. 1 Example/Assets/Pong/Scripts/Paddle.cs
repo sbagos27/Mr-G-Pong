@@ -26,10 +26,23 @@ public class Paddle : MonoBehaviour
     void Update()
     {   
         Vector3 paddleDirection = move.action.ReadValue<Vector3>();
-        Vector3 newPosition = transform.position + paddleDirection * speed * Time.deltaTime;
-        newPosition.z = Mathf.Clamp(newPosition.z, minTravelHeight, maxTravelHeight);
 
-        transform.position = newPosition;
+        if (transform.localScale.z == 6) {
+            Vector3 newPosition = transform.position + paddleDirection * speed * Time.deltaTime;
+            newPosition.z = Mathf.Clamp(newPosition.z, -2, 2);
+            transform.position = newPosition;
+
+        } else {
+            Vector3 newPosition = transform.position + paddleDirection * speed * Time.deltaTime;
+            newPosition.z = Mathf.Clamp(newPosition.z, minTravelHeight, maxTravelHeight);
+            transform.position = newPosition;
+
+        }
+        
+        // Vector3 newPosition = transform.position + paddleDirection * speed * Time.deltaTime;
+        // newPosition.z = Mathf.Clamp(newPosition.z, minTravelHeight, maxTravelHeight);
+        //
+        // transform.position = newPosition;
     }
 
     //-----------------------------------------------------------------------------

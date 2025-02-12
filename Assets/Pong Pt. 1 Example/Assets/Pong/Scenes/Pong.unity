@@ -1488,7 +1488,6 @@ MonoBehaviour:
   speed: 6
   collisionBallSpeedUp: 1.5
   paddleHit: {fileID: 8300000, guid: 2f8e3e2a4ee740f47836fb310a97ca5c, type: 3}
-  startingPitch: 1
   move: {fileID: 7853206351849607767, guid: 3789aad28fdb9b14eab4c561fa50547a, type: 3}
 --- !u!82 &1764608164
 AudioSource:
@@ -1823,7 +1822,6 @@ MonoBehaviour:
   speed: 6
   collisionBallSpeedUp: 1.5
   paddleHit: {fileID: 8300000, guid: 8dfd0c76f91f999418b79181d5864869, type: 3}
-  startingPitch: 1
   move: {fileID: 6856833187279159481, guid: 3789aad28fdb9b14eab4c561fa50547a, type: 3}
 --- !u!65 &2084160398
 BoxCollider:

@@ -46,13 +46,13 @@ public class GameManager : MonoBehaviour
             if (rightPlayerScore == scoreToWin) {
                 Debug.Log("Right player wins!");
                 startSpeed = -3;
-                ResetBall(-1f);
+                ResetBall(1f);
                 leftPlayerScore = 0;
                 rightPlayerScore = 0;
                 scoreText.text = leftPlayerScore + " : " + rightPlayerScore;
 
             } else {
-                ResetBall(-1f);
+                ResetBall(1f);
             }
         }
         else if (trigger == rightGoalTrigger)
@@ -64,14 +64,14 @@ public class GameManager : MonoBehaviour
             if (leftPlayerScore == scoreToWin) {
                 Debug.Log("Right player wins!");
                 startSpeed = -3;
-                ResetBall(1f);
+                ResetBall(-1f);
                 rightPlayerScore = 0;
                 leftPlayerScore = 0;
                 scoreText.text = leftPlayerScore + " : " + rightPlayerScore;
 
             }
             else {
-                ResetBall(1f);
+                ResetBall(-1f);
             }
         }
         if (leftPlayerScore % 3 == 0 && leftPlayerScore != 0)
@@ -83,6 +83,12 @@ public class GameManager : MonoBehaviour
             ChangePaddleSize(rightPaddle);
         }
 
+        if (leftPlayerScore + rightPlayerScore == 10)
+        {
+            ChangePaddleSpeed(leftPaddle);
+            ChangePaddleSpeed(rightPaddle);
+        }
+
         ResetPitch(leftPaddle);
         ResetPitch(rightPaddle);
     }
@@ -91,6 +97,12 @@ public class GameManager : MonoBehaviour
     {
         AudioSource audioSource = paddle.GetComponent<AudioSource>();
         audioSource.pitch = 1f;
+    }
+
+    void ChangePaddleSpeed(GameObject paddle)
+    {
+        Paddle pad = paddle.GetComponent<Paddle>();
+        pad.speed = 10;
     }
     
     void ChangePaddleSize(GameObject paddle)
@@ -103,6 +115,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         paddle.transform.localScale = new Vector3(0.75f, 1f, 4f); // Reset to original size
+        
     }
 
     //---------------------------------------------------------------------------
