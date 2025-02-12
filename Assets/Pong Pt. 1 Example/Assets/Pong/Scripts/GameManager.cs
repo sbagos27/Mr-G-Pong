@@ -82,6 +82,15 @@ public class GameManager : MonoBehaviour
         {
             ChangePaddleSize(rightPaddle);
         }
+
+        ResetPitch(leftPaddle);
+        ResetPitch(rightPaddle);
+    }
+
+    void ResetPitch(GameObject paddle)
+    {
+        AudioSource audioSource = paddle.GetComponent<AudioSource>();
+        audioSource.pitch = 1f;
     }
     
     void ChangePaddleSize(GameObject paddle)

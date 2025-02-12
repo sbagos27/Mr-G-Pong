@@ -11,6 +11,7 @@ public class Paddle : MonoBehaviour
     public float collisionBallSpeedUp = 1.5f;
 
     public AudioClip paddleHit;
+    
     public InputActionReference move;
     private void OnEnable()
     {
@@ -37,6 +38,7 @@ public class Paddle : MonoBehaviour
         AudioSource audioSrc = GetComponent<AudioSource>();
         audioSrc.clip = paddleHit;
         audioSrc.Play();
+        audioSrc.pitch += 0.2f;
         //Play Audio
         
         var paddleBounds = GetComponent<BoxCollider>().bounds;

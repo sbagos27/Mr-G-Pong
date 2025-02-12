@@ -1488,6 +1488,7 @@ MonoBehaviour:
   speed: 6
   collisionBallSpeedUp: 1.5
   paddleHit: {fileID: 8300000, guid: 2f8e3e2a4ee740f47836fb310a97ca5c, type: 3}
+  startingPitch: 1
   move: {fileID: 7853206351849607767, guid: 3789aad28fdb9b14eab4c561fa50547a, type: 3}
 --- !u!82 &1764608164
 AudioSource:
@@ -1499,8 +1500,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2f8e3e2a4ee740f47836fb310a97ca5c, type: 3}
+  m_Resource: {fileID: 8300000, guid: 2f8e3e2a4ee740f47836fb310a97ca5c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1822,6 +1823,7 @@ MonoBehaviour:
   speed: 6
   collisionBallSpeedUp: 1.5
   paddleHit: {fileID: 8300000, guid: 8dfd0c76f91f999418b79181d5864869, type: 3}
+  startingPitch: 1
   move: {fileID: 6856833187279159481, guid: 3789aad28fdb9b14eab4c561fa50547a, type: 3}
 --- !u!65 &2084160398
 BoxCollider:
@@ -1922,9 +1924,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 8dfd0c76f91f999418b79181d5864869, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8dfd0c76f91f999418b79181d5864869, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
