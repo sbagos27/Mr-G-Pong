@@ -1256,6 +1256,8 @@ MonoBehaviour:
   leftGoalTrigger: {fileID: 653043940}
   rightGoalTrigger: {fileID: 642472329}
   scoreText: {fileID: 2037242358}
+  leftPaddle: {fileID: 1764608158}
+  rightPaddle: {fileID: 2084160396}
 --- !u!1 &1751351786
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,7 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +18,9 @@ public class GameManager : MonoBehaviour
     Vector3 ballStartPos;
 
     const int scoreToWin = 11;
+    
+    public GameObject leftPaddle;
+    public GameObject rightPaddle;
     
     //---------------------------------------------------------------------------
     void Start()
@@ -40,6 +45,7 @@ public class GameManager : MonoBehaviour
             
             if (rightPlayerScore == scoreToWin) {
                 Debug.Log("Right player wins!");
+                startSpeed = -3;
                 ResetBall(-1f);
                 leftPlayerScore = 0;
                 rightPlayerScore = 0;
@@ -57,6 +63,7 @@ public class GameManager : MonoBehaviour
             
             if (leftPlayerScore == scoreToWin) {
                 Debug.Log("Right player wins!");
+                startSpeed = -3;
                 ResetBall(1f);
                 rightPlayerScore = 0;
                 leftPlayerScore = 0;
@@ -67,6 +74,26 @@ public class GameManager : MonoBehaviour
                 ResetBall(1f);
             }
         }
+        if (leftPlayerScore % 3 == 0 && leftPlayerScore != 0)
+        {
+            ChangePaddleSize(leftPaddle);
+        }
+        if (rightPlayerScore % 3 == 0 && rightPlayerScore != 0)
+        {
+            ChangePaddleSize(rightPaddle);
+        }
+    }
+    
+    void ChangePaddleSize(GameObject paddle)
+    {
+        paddle.transform.localScale = new Vector3(0.75f, 1f, 6f);
+        StartCoroutine(ResetPaddleSize(paddle));
+    }
+
+    IEnumerator ResetPaddleSize(GameObject paddle)
+    {
+        yield return new WaitForSeconds(5f);
+        paddle.transform.localScale = new Vector3(0.75f, 1f, 4f); // Reset to original size
     }
 
     //---------------------------------------------------------------------------
@@ -76,7 +103,7 @@ public class GameManager : MonoBehaviour
 
         // Start the ball within 20 degrees off-center toward direction indicated by directionSign
         directionSign = Mathf.Sign(directionSign);
-        Vector3 newDirection = new Vector3(directionSign, 0f, 0f) * startSpeed;
+        Vector3 newDirection = new Vector3(directionSign, 0f, 0f) * startSpeed--;
         newDirection = Quaternion.Euler(0f, Random.Range(-20f, 20f), 0f) * newDirection;
 
         var rbody = ball.GetComponent<Rigidbody>();
