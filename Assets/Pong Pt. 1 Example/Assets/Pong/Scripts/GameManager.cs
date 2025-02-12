@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public void OnGoalTrigger(GoalTrigger trigger)
     {
         // If the ball entered a goal area, increment the score, check for win, and reset the ball
+        scoreText.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
 
         if (trigger == leftGoalTrigger)
         {
