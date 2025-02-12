@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
     void ChangePaddleSpeed(GameObject paddle)
     {
         Paddle pad = paddle.GetComponent<Paddle>();
-        pad.speed = 10;
+        pad.speed = 12;
     }
     
     void ChangePaddleSize(GameObject paddle)
